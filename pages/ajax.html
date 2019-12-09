@@ -1,0 +1,28 @@
+<p>Vodka also supports AJAX! You would have to handle menu events and define AJAX and non-AJAX pages though.</p>
+<p></p>
+<p><button id="ajaxtest">Load!</button></p>
+<p id="ajaxres"></p>
+<script>
+    var ajaxtest = document.getElementById('ajaxtest');
+    var ajaxres = document.getElementById('ajaxres');
+    ajaxtest.onclick = function(){
+        ajaxres.innerHTML = '<img src="{VODKA:TEMPLATE}/img/loading.gif">';
+        request = new XMLHttpRequest();
+        request.onload = function(){
+            if (request.status != 200) {
+                ajaxres.innerHTML = 'Error! Server returned ' + request.status +'.';
+            } else {
+                ajaxres.innerHTML = request.response;
+            }
+        };
+        request.onerror = function(){
+            ajaxres.innerHTML = 'Error2!';
+        };
+        request.open('GET','{VODKA:BASEURL}ajax-content');
+        request.send();
+        return false;
+    };
+</script>
+
+<!-- preloading for loading spinner -->
+<img src="{VODKA:TEMPLATE}/img/loading.gif" style="display:none">
