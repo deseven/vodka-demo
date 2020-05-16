@@ -4,7 +4,7 @@
 // https://github.com/deseven/vodka/wiki/Engine-parameters
 
 $params["system"] = [
-	"base_url"          => "http://vodka.deseven.info/",
+	"base_url"          => "http://vodka.d7.wtf/",
 	"root"              => realpath(dirname(__FILE__)),
 	"show_errors"       => true,
 	"forbid_scriptname" => true,
